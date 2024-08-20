@@ -1,4 +1,4 @@
-const primaryColor: string = "#3D5A73";
+const primaryColor: string = "#DA344B";
 const secundaryColor: string = "#28403D";
 const bgColor: string = "#182625";
 const lightGrayColors: string = "#455559";
