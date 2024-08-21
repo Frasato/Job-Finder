@@ -1,23 +1,41 @@
 import React, { createContext, useState } from "react";
 import { LoginType } from "../@Types/LoginType";
 
-const AuthContext = createContext({});
+const Context = createContext<{
+    username: LoginType | undefined;
+    setUser: React.Dispatch<React.SetStateAction<LoginType | undefined>>;
+    isLogged: boolean;
+    setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
+    interest: string;
+    setInterest: React.Dispatch<React.SetStateAction<string>>;
+}>({
+    username: undefined,
+    setUser: () => {},
+    isLogged: false,
+    setIsLogged: () => {},
+    interest: '',
+    setInterest: () => {},
+});
 
 const AuthProvider = ({children} : {children: React.ReactNode}) =>{
     
-    const [isLogged, setIsLogged] = useState<boolean>(false);
-    const [user, setUser] = useState<LoginType>();
+    const [isLogged, setIsLogged] = useState<boolean>(true);
+    const [interest, setInterest] = useState<string>('');
+    const [username, setUser] = useState<LoginType>();
 
     return(
-        <AuthContext.Provider value={{
-                    user,
+        <Context.Provider value={{
+                    username,
                     setUser,
                     isLogged,
-                    setIsLogged
+                    setIsLogged,
+                    interest,
+                    setInterest
                 }}>
             <>{children}</>
-        </AuthContext.Provider>
+        </Context.Provider>
     )
 }
 
+export {Context};
 export default AuthProvider;
