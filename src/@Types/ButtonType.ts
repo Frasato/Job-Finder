@@ -1,3 +1,4 @@
 export type ButtonType = {
-    textButton: string
+    textButton: string,
+    onClick: () => void,
 }
