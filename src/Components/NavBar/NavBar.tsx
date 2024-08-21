@@ -2,13 +2,14 @@ import { NavContainer, LogoImage, ButtonsContainerDesktop, ButtonsContainerMobil
 import Logo from "../../Assets/942800.png";
 import { TiThMenu } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../Contexts/Account";
 
 const NavBar = () =>{
 
     const [clicked, setClicked] = useState<boolean>(false);
-    const [isLogged] = useState<boolean>(false);
+    const { isLogged } = useContext(Context);
 
     function menuLoggedOrNo(){
         if(isLogged){
