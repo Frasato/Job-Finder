@@ -4,7 +4,7 @@ import { ButtonComponent } from "./Button.styles";
 const Button = (TextProps: ButtonType) =>{
     return(
         <>
-            <ButtonComponent>{TextProps.textButton}</ButtonComponent>
+            <ButtonComponent onClick={TextProps.onClick}>{TextProps.textButton}</ButtonComponent>
         </>
     )
 }
