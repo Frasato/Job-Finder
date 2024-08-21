@@ -3,4 +3,6 @@ export type PropsInput = {
     placeText?: string,
     textLabel: string,
     nameLabel: string,
+    valueInput: string,
+    onChangeInput: () => void,
 }
