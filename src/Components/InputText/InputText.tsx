@@ -6,7 +6,13 @@ const InputText = (PropsInput: PropsInput) =>{
         <InputContainer>
             <div>
                 <LabelInput htmlFor={PropsInput.nameLabel}>{PropsInput.textLabel}</LabelInput>
-                <InputComponent type={PropsInput.typeInput} placeholder={PropsInput.placeText} name={PropsInput.nameLabel}/>
+                <InputComponent
+                    type={PropsInput.typeInput}
+                    placeholder={PropsInput.placeText}
+                    name={PropsInput.nameLabel}
+                    value={PropsInput.valueInput}
+                    onChange={PropsInput.onChangeInput}
+                />
             </div>
         </InputContainer>
     )
