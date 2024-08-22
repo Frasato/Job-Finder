@@ -3,12 +3,13 @@ import Logo from "../../Assets/942800.png";
 import { TiThMenu } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Context } from "../../Contexts/Account";
 
 const NavBar = () =>{
 
     const [clicked, setClicked] = useState<boolean>(false);
+    const [toHome, setToHome] = useState<boolean>(false);
     const { isLogged } = useContext(Context);
 
     function menuLoggedOrNo(){
@@ -35,13 +36,26 @@ const NavBar = () =>{
         }
     }
 
+    if(toHome){
+        return <Navigate to="/"/>
+    }
+
     return(
         <div>
             <NavContainer>
-                <LogoImage src={Logo}/>
+                <LogoImage src={Logo} onClick={()=> setToHome(true)}/>
                 <ButtonsContainerDesktop>
-                    <Link to="/login" className="buttonLogin">Login</Link>
-                    <Link to="/register" className="buttonLogin">Register</Link>
+                    {isLogged?
+                        <>
+                            <Link to="/account" className="buttonLogin">Account</Link>
+                            <Link to="/logout" className="buttonLogin">Logout</Link>
+                        </>
+                        :
+                        <>
+                            <Link to="/login" className="buttonLogin">Login</Link>
+                            <Link to="/register" className="buttonLogin">Register</Link>
+                        </>
+                    }
                 </ButtonsContainerDesktop>
                 <ButtonsContainerMobile>
                     <TiThMenu className="menuIcon" onClick={()=> setClicked(true)}/>
