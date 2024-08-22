@@ -20,7 +20,7 @@ const Context = createContext<{
 const AuthProvider = ({children} : {children: React.ReactNode}) =>{
     
     const [isLogged, setIsLogged] = useState<boolean>(true);
-    const [interest, setInterest] = useState<string>('');
+    const [interest, setInterest] = useState<string>('Hire');
     const [username, setUser] = useState<LoginType>();
 
     return(
