@@ -19,7 +19,8 @@ const Register = () =>{
     const { setUser, setIsLogged } = useContext(Context);
 
     const handleUsername = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        setUsername(event.target.value);
+        const userNameLowerCase = event.target.value;
+        setUsername(userNameLowerCase.toLowerCase());
     }
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) =>{
