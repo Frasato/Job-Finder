@@ -8,4 +8,5 @@ export const ButtonComponent = styled.button`
     height: 50px;
     border-radius: 9px;
     margin: 30px 0 30px 0;
+    cursor: pointer;
 `;
