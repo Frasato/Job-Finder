@@ -38,16 +38,6 @@ export const HiringTitle = styled.h3`
     margin: 0 0 10px 0;
 `;
 
-export const Separator = styled.div`
-    background-color: ${Colors.primaryColor};
-    width: 75%;
-    height: 1px;
-
-    @media screen and (min-width: 768px){
-        width: 35%;
-    }
-`;
-
 export const VacanciesContainer = styled.div`
     width: 100%;
 
