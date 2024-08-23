@@ -24,6 +24,10 @@ export const Container = styled.div`
 export const Icon = styled.img`
     width: 70%;
     animation: ${opacityAnimation} 4s infinite;
+
+    @media screen and (min-width: 768px){
+        width: 15%;
+    }
 `;
 
 export const TextDisconect = styled.h1`
