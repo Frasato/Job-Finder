@@ -1,19 +1,7 @@
-import { keyframes, styled } from "styled-components";
-
-const opacityAnimation = keyframes`
-    0%{
-        opacity: 1;
-    }50%{
-        opacity: 0;
-    }100%{
-        opacity: 0.9;
-    }
-`;
+import { styled } from "styled-components";
 
 export const Container = styled.div`
     height: 100vh;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,15 +11,8 @@ export const Container = styled.div`
 
 export const Icon = styled.img`
     width: 70%;
-    animation: ${opacityAnimation} 4s infinite;
 
     @media screen and (min-width: 768px){
         width: 15%;
     }
-`;
-
-export const TextDisconect = styled.h1`
-    color: white;
-    font-weight: bold;
-    font-size: 100%;
 `;

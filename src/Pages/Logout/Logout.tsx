@@ -1,8 +1,9 @@
-import { Container, Icon, TextDisconect } from './Logout.styles';
+import { Container, Icon } from './Logout.styles';
 import icon from '../../Assets/icon.png';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Contexts/Account';
 import { Navigate } from 'react-router';
+import Load from '../../Components/Load/Load';
 
 const Logout = () =>{
 
@@ -30,7 +31,7 @@ const Logout = () =>{
     return(
         <Container>
             <Icon src={icon}/>
-            <TextDisconect>Disconnecting your account</TextDisconect>
+            <Load />
         </Container>
     )
 }
