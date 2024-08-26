@@ -69,9 +69,30 @@ const Register = () =>{
 
     return(
         <LoginContainer>
-            <InputText typeInput="text" placeText="example name" textLabel="Username" nameLabel="username" valueInput={username} onChangeInput={handleUsername}/>
-            <InputText typeInput="email" placeText="exampleemail@example.com" textLabel="Email" nameLabel="email" valueInput={email} onChangeInput={handleEmail}/>
-            <InputText typeInput="password" placeText="Strong password" textLabel="Password" nameLabel="password" valueInput={password} onChangeInput={handlePassword}/>
+            <InputText 
+                typeInput="text"
+                placeText="example name"
+                textLabel="Username"
+                nameLabel="username"
+                valueInput={username}
+                onChangeInput={handleUsername}
+            />
+            <InputText
+                typeInput="email"
+                placeText="exampleemail@example.com"
+                textLabel="Email"
+                nameLabel="email"
+                valueInput={email}
+                onChangeInput={handleEmail}
+            />
+            <InputText
+                typeInput="password"
+                placeText="Strong password"
+                textLabel="Password"
+                nameLabel="password"
+                valueInput={password}
+                onChangeInput={handlePassword}
+            />
             <div className="SelectContainer">
                 <LabelSelect>Interest</LabelSelect>
                 <SelectList value={interest} onChange={handleInterest}>
