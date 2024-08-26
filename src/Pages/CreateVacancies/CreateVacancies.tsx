@@ -7,6 +7,7 @@ import { VacanciesContext } from "../../Contexts/VacanciesContext";
 import { Navigate } from "react-router";
 import { ref, set } from "firebase/database";
 import { db } from "../../firebase/firebase";
+import { v4 as uuidV4 } from "uuid";
 
 const CreateVacancies = () =>{
 
@@ -15,33 +16,39 @@ const CreateVacancies = () =>{
     const [description, setDescription] = useState<string>('');
     const [wage, setWage] = useState<string>('');
     const [btnClicked, setBtnClicked] = useState<boolean>(false);
+    const [img, setImg] = useState<string>('');
     const {setVacanciesItems, vacanciesItems} = useContext(VacanciesContext);
 
     const handleTitle = (event: React.ChangeEvent<HTMLSelectElement>) => setTitle(event.target.value);
     const handleCompanyName = (event: React.ChangeEvent<HTMLSelectElement>) => setCompanyName(event.target.value);
     const handleDescription = (event: React.ChangeEvent<HTMLSelectElement>) => setDescription(event.target.value);
     const handleWage = (event: React.ChangeEvent<HTMLSelectElement>) => setWage(event.target.value);
+    const handleImg = (event: React.ChangeEvent<HTMLSelectElement>) => setImg(event.target.value);
 
-    const createDbCardVacancies = async(title: string, companyName: string, description: string, wage: string) =>{
-        const dbRef = ref(db, `/vacancies/${title.toLowerCase()}`);
+    const createDbCardVacancies = async(title: string, companyName: string, description: string, wage: string, imgurl: string) =>{
+        const idV4 = uuidV4();
+        const dbRef = ref(db, `/vacancies/${idV4}`);
         await set(dbRef, {
+            id: idV4,
             title: title,
             companyname: companyName,
             description: description,
-            wage: wage
+            wage: wage,
+            img: imgurl,
         });
     }
 
     const create = () =>{
-        if(title != '' && companyName != '' && description != '' && wage != ''){
+        if(title != '' && companyName != '' && description != '' && wage != '' && img != ''){
             const vacanciesItemModel = {
                 vacanciesTitle: title,
                 companyName: companyName,
                 description: description,
                 wage: wage,
+                img: img,
             }
 
-            createDbCardVacancies(title, companyName, description, wage);
+            createDbCardVacancies(title, companyName, description, wage, img);
     
             setVacanciesItems([...vacanciesItems, vacanciesItemModel]);
             setBtnClicked(true);
@@ -65,6 +72,14 @@ const CreateVacancies = () =>{
                     placeText="Junior Front-end Developer..."
                     valueInput={title}
                     onChangeInput={handleTitle}
+                />
+                <InputText
+                    typeInput="text"
+                    textLabel="Image URL"
+                    nameLabel="imgaurl"
+                    placeText="https://imageurl.com.br"
+                    valueInput={img}
+                    onChangeInput={handleImg}
                 />
                 <InputText
                     typeInput="text"
