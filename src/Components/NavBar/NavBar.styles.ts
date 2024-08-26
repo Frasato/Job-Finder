@@ -19,6 +19,10 @@ export const LogoImage = styled.img`
     }
 
     @media screen and (min-width: 768px){
+        width: 12%;
+    }
+
+    @media screen and (min-width: 1024px){
         width: 8%;
     }
 `;
