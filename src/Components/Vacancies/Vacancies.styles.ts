@@ -6,12 +6,13 @@ export const VacanciesContainer = styled.div`
 `;
 
 export const VacanciesCard = styled.div`
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: ${Colors.whiteColor};
     border-radius: 10px;
-    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: ${Colors.boxShadowStyle};
     padding: 10px;
 
     @media screen and (min-width: 768px){
