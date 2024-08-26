@@ -4,4 +4,5 @@ export type VacanciesType = {
     companyName: string,
     description: string,
     wage: string,
+    img?: string,
 }
