@@ -38,10 +38,23 @@ export const HiringTitle = styled.h3`
     margin: 0 0 10px 0;
 `;
 
-export const VacanciesContainer = styled.div`
+export const VacanciesList = styled.div`
     width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    justify-content: center;
 
     @media screen and (min-width: 768px){
-        width: 60%;
+        grid-template-columns: 40% 40%;
     }
+
+    @media screen and (min-width: 1024px){
+        grid-template-columns: 25% 25% 25%;
+    }
+`;
+
+export const VacanciesContainer = styled.div`
+    width: 100%;
+    height: 100%;
 `;
