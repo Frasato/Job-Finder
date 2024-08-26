@@ -4,6 +4,7 @@ const bgColor: string = "#182625";
 const lightGrayColors: string = "#455559";
 const darkGrayColor: string = "#2F3D40";
 const whiteColor: string = "white";
+const boxShadowStyle: string = "10px 10px 10px rgba(0, 0, 0, 0.1)";
 
 export {
     primaryColor,
@@ -12,4 +13,5 @@ export {
     lightGrayColors,
     darkGrayColor,
     whiteColor,
+    boxShadowStyle
 }
