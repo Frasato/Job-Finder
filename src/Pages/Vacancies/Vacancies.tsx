@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "react-router";
-import { VacanciesBody, ContentBody, Head, Body, VacanciesTitle, CompanyName, Description, Wage } from "./Vacancies.styles";
+import { VacanciesBody, ContentBody, Head, Body, VacanciesTitle, CompanyName, Description, Wage, ImageUrlBanner, ImageContainer } from "./Vacancies.styles";
 import NavBar from "../../Components/NavBar/NavBar";
 import { VacanciesType } from "../../@Types/VacanciesType";
 import { useEffect, useState } from "react";
@@ -29,6 +29,7 @@ const Vacancies = () =>{
                         companyName: responseValue.companyname,
                         description: responseValue.description,
                         wage: responseValue.wage,
+                        img: responseValue.img,
                     }
                     setNewVacanciesItems(vacanciesModel);
                 }else{
@@ -48,9 +49,11 @@ const Vacancies = () =>{
             <NavBar />
             {load == true && <Load />}
             <VacanciesBody>
-
                 {load == false &&
                     <ContentBody>
+                        <ImageContainer>
+                            <ImageUrlBanner src={newVacanciesItems?.img}/>
+                        </ImageContainer>
                         <Head>
                             <VacanciesTitle>{newVacanciesItems?.vacanciesTitle}</VacanciesTitle>
                             <CompanyName>{newVacanciesItems?.companyName}</CompanyName>

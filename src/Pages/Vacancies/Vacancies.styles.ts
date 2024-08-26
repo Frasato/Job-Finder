@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import * as Colors from "../../Constants/Colors";
 
 export const VacanciesBody = styled.div`
-    height: 84.9vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,6 +11,18 @@ export const VacanciesBody = styled.div`
 export const ContentBody = styled.div`
     margin: 60px 0;
 `;
+
+export const ImageContainer = styled.div`
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: -191px;
+`;
+
+export const ImageUrlBanner = styled.img``;
 
 export const Head = styled.div`
     display: flex;
@@ -28,7 +40,7 @@ export const Body = styled.div`
 `;
 
 export const VacanciesTitle = styled.h1`
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: bold;
     color: ${Colors.primaryColor};
 `;
@@ -42,6 +54,7 @@ export const CompanyName = styled.h2`
 export const Description = styled.p`
     text-align: center;
     margin: 0 0 20px 0;
+    width: 45%;
 `;
 
 export const Wage = styled.h3`
