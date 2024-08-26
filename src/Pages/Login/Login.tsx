@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import InputText from "../../Components/InputText/InputText";
 import { LinkContainer, LoginContainer } from "./Login.styles";
 import Button from "../../Components/Button/Button";
@@ -12,7 +12,8 @@ const Login = () => {
 
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const {setIsLogged, setUser} = useContext(Context);
+    const [redirect, setRedirect] = useState<boolean>(false);
+    const {setIsLogged, setUser, setInterest} = useContext(Context);
 
     const handleUserName = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const userNameLoweCase = event.target.value;
@@ -39,6 +40,8 @@ const Login = () => {
                         password: userData.password,
                         interest: userData.interest,
                     });
+                    setInterest(userData.interest)
+                    setRedirect(true);
                 }else{
                     toast.error("Invalid Password");
                 }
@@ -48,6 +51,10 @@ const Login = () => {
         }catch(error){
             console.error(error);
         }
+    }
+
+    if(redirect){
+        return <Navigate to="/"/>
     }
 
     return(
