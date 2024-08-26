@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Account from "../Pages/Account/Account";
 import Logout from "../Pages/Logout/Logout";
 import CreateVacancies from "../Pages/CreateVacancies/CreateVacancies";
+import Vacancies from "../Pages/Vacancies/Vacancies";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
             {path: "account", element: <Account />},
             {path: "logout", element: <Logout />},
             {path: "create", element: <CreateVacancies />},
-            {path: "vacancies/:id", element: <CreateVacancies />},
+            {path: "vacancies/:id", element: <Vacancies />},
         ]
     }
 ])
