@@ -24,7 +24,6 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    border-radius: 10px;
 
     @media screen and (min-width: 768px){
         height: 258px;
@@ -42,7 +41,9 @@ export const ImageContainer = styled.div`
     }
 `;
 
-export const ImageUrlBanner = styled.img``;
+export const ImageUrlBanner = styled.img`
+    border-radius: 10px;
+`;
 
 export const Head = styled.div`
     display: flex;
