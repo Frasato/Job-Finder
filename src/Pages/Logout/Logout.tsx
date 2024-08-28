@@ -21,7 +21,7 @@ const Logout = () =>{
         setIsLogged(false);
         setTimeout(()=>{
             setRedirect(true);
-        }, 5500);
+        }, 1500);
     },[])
 
     if(redirect){
