@@ -63,7 +63,7 @@ const Home = () =>{
                         return(
                             <Link to={`/vacancies/${items.id}`}>
                                 <VacanciesContainer key={index}>
-                                    <Vacancies vacanciesTitle={items.vacanciesTitle} companyName={items.companyName} description={`${items.description.slice(0, 70)}...`} wage={`$${items.wage}`} />
+                                    <Vacancies vacanciesTitle={items.vacanciesTitle} companyName={items.companyName} description={`${items.description.slice(0, 45)}...`} wage={`$${items.wage}`} />
                                 </VacanciesContainer>
                             </Link>
                         )
