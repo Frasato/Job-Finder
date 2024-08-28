@@ -9,6 +9,8 @@ import { get, ref } from "firebase/database";
 import { db } from "../../firebase/firebase";
 import { VacanciesType } from "../../@Types/VacanciesType";
 import Vacancies from "../../Components/Vacancies/Vacancies";
+import { FaTrash } from "react-icons/fa";
+import Load from "../../Components/Load/Load";
 
 const Account = () =>{
 
@@ -61,22 +63,36 @@ const Account = () =>{
         return <Navigate to="/create"/>
     }
 
+    const handleDeleteVacancie = (id) =>{
+        const newVacancies = localVacancies.filter((item, index)=>{
+            return id != index;
+        })
+
+        setLocalVacancies(newVacancies);
+    }
+
     return(
         <>
             <NavBar />
-            {interest === 'Work' &&
+
+            {load && <Load />}
+
+            {!load && interest === 'Work' &&
                 <VacanciesContainerWork>
                     {/* Vagas Aplicadas */}
                 </VacanciesContainerWork>
             }
-            {interest === 'Hire' &&
+            {!load && interest === 'Hire' &&
                 <VacanciesContainerHiring>
                     <Button textButton="Create" onClick={() => setBtnClick(true)}/>
                         <Separator />
                     {localVacancies.length != 0?
                         localVacancies.map((item, index)=>{
                             return(
-                                <Vacancies vacanciesTitle={item.vacanciesTitle} companyName={item.companyName} description={item.description} wage={item.wage} />
+                                <div key={index}>
+                                    <Vacancies vacanciesTitle={item.vacanciesTitle} companyName={item.companyName} description={item.description} wage={item.wage} />
+                                    <FaTrash onClick={() => handleDeleteVacancie(index)}/>
+                                </div>
                             )
                         })
                         :
