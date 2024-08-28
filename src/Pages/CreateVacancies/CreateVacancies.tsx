@@ -8,6 +8,7 @@ import { Navigate } from "react-router";
 import { ref, set } from "firebase/database";
 import { db } from "../../firebase/firebase";
 import { v4 as uuidV4 } from "uuid";
+import { Context } from "../../Contexts/Account";
 
 const CreateVacancies = () =>{
 
@@ -18,6 +19,7 @@ const CreateVacancies = () =>{
     const [btnClicked, setBtnClicked] = useState<boolean>(false);
     const [img, setImg] = useState<string>('');
     const {setVacanciesItems, vacanciesItems} = useContext(VacanciesContext);
+    const {username} = useContext(Context);
 
     const handleTitle = (event: React.ChangeEvent<HTMLSelectElement>) => setTitle(event.target.value);
     const handleCompanyName = (event: React.ChangeEvent<HTMLSelectElement>) => setCompanyName(event.target.value);
@@ -35,6 +37,7 @@ const CreateVacancies = () =>{
             description: description,
             wage: wage,
             img: imgurl,
+            createdBy: username?.username.toLocaleLowerCase(),
         });
     }
 
