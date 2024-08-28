@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar/NavBar";
 import { Context } from "../../Contexts/Account";
-import { VacanciesContainerHiring, VacanciesContainerWork } from "./Account.styles";
+import { CardContianer, VacanciesContainerHiring, VacanciesContainerWork } from "./Account.styles";
 import Button from "../../Components/Button/Button";
 import { Navigate } from "react-router";
 import Separator from "../../Components/Separator/Separator";
@@ -89,10 +89,10 @@ const Account = () =>{
                     {localVacancies.length != 0?
                         localVacancies.map((item, index)=>{
                             return(
-                                <div key={index}>
+                                <CardContianer key={index}>
                                     <Vacancies vacanciesTitle={item.vacanciesTitle} companyName={item.companyName} description={item.description} wage={item.wage} />
-                                    <FaTrash onClick={() => handleDeleteVacancie(index)}/>
-                                </div>
+                                    <FaTrash onClick={() => handleDeleteVacancie(index)} className="trashIcon"/>
+                                </CardContianer>
                             )
                         })
                         :
